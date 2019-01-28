@@ -43,4 +43,12 @@ public class BankAccount {
             return true;
         }
     }
+
+    public static boolean isAmountValid(double amount){
+
+        //TODO
+
+
+        return false;
+    }
 }
