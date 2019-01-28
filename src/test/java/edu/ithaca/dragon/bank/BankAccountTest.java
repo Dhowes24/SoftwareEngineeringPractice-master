@@ -33,8 +33,8 @@ class BankAccountTest {
     void isAmountValidTest(){
         BankAccount bankAccount = new BankAccount("a@b.com", 200);
         assertTrue(bankAccount.isAmountValid(100.10));
-        assertTrue(bankAccount.isAmountValid(100.101));
-        assertTrue(bankAccount.isAmountValid(-100.10));
+        assertFalse(bankAccount.isAmountValid(100.101));
+        assertFalse(bankAccount.isAmountValid(-100.10));
 
     }
 

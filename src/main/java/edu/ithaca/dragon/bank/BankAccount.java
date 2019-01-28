@@ -25,7 +25,18 @@ public class BankAccount {
      * @return
      */
     public boolean isAmountValid(double amount){
-        return false;
+        if(amount>=0){
+            String string =Double.toString(amount);
+            String arr[] =string.split("\\.");
+            if(arr[1].length()>2){
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+        else{
+        return false;}
     }
 
     public double getBalance(){
