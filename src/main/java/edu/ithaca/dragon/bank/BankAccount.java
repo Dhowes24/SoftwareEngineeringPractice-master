@@ -31,6 +31,7 @@ public class BankAccount {
  * The amount must be a positive amount that has no more or less than two decimal places
  */
     public void withdraw (double amount)  {
+        if(amount>0 && amount<=balance)
         balance -= amount;
     }
 
