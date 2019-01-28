@@ -11,10 +11,16 @@ public class BankAccount {
     public BankAccount(String email, double startingBalance){
         if (isEmailValid(email)){
             this.email = email;
-            this.balance = startingBalance;
         }
         else {
             throw new IllegalArgumentException("Email address: " + email + " is invalid, cannot create account");
+        }
+        if (isAmountValid(startingBalance)){
+            this.balance = startingBalance;
+        }
+        else{
+            throw new IllegalArgumentException("$"+startingBalance+" is not a valid amount");
+
         }
     }
 
@@ -52,21 +58,26 @@ public class BankAccount {
  * The amount must be a positive amount that has no more or less than two decimal places
  */
     public void withdraw (double amount)  {
-        if(amount>0 && amount<=balance)
+        if(isAmountValid(amount) && amount<=balance)
         balance -= amount;
     }
 
     /**
      *This checks whether the given string contains a '@' symbol.
-     * If it does then is returns a true, if not it returns false.
+     * It also checks if there are characters before and after the '@' symbol
+     * followed by at .com in the end
      * @param email
      * @return boolean
      */
     public static boolean isEmailValid(String email){
-        if (email.indexOf('@') == -1){
+        String arr[] = email.split("@");
+        if (email.indexOf('@') == -1 || arr.length!=2 || !email.contains(".com")){
             return false;
         }
-        else {
+        else if(arr[0].length()<1 ||arr[1].length()<5){
+            return false;
+        }
+        else{
             return true;
         }
     }
