@@ -18,6 +18,16 @@ public class BankAccount {
         }
     }
 
+    /**
+     * This function checks if the given amount is valid
+     * by checking if it a positive number with no more than 2 decimal places
+     * @param amount
+     * @return
+     */
+    public boolean isAmountValid(double amount){
+        return false;
+    }
+
     public double getBalance(){
         return balance;
     }

@@ -30,6 +30,15 @@ class BankAccountTest {
     }
 
     @Test
+    void isAmountValidTest(){
+        BankAccount bankAccount = new BankAccount("a@b.com", 200);
+        assertTrue(bankAccount.isAmountValid(100.10));
+        assertTrue(bankAccount.isAmountValid(100.101));
+        assertTrue(bankAccount.isAmountValid(-100.10));
+
+    }
+
+    @Test
     void isEmailValidTest(){
         assertTrue(BankAccount.isEmailValid( "a@b.com"));
         assertFalse( BankAccount.isEmailValid(""));
