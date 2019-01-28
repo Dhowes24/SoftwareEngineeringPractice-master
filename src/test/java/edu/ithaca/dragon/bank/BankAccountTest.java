@@ -50,6 +50,13 @@ class BankAccountTest {
 
         assertEquals("a@b.com", bankAccount.getEmail());
         assertEquals(200, bankAccount.getBalance());
+
+        //check for exception thrown correctly
+        assertThrows(IllegalArgumentException.class, ()-> new BankAccount("email2@Email2.com", -300));
+
+        //check for exception thrown correctly
+        assertThrows(IllegalArgumentException.class, ()-> new BankAccount("email3@Email3.com", 1.111));
+
         //check for exception thrown correctly
         assertThrows(IllegalArgumentException.class, ()-> new BankAccount("", 100));
     }
