@@ -26,12 +26,12 @@ public class BankAccount {
         return email;
     }
 
-    /**
-     * @post reduces the balance by amount if amount is non-negative and smaller than balance
-     */
+/**
+ * This function withdraws an amount from the bank if the bank contains enough money
+ * The amount must be a positive amount that has no more or less than two decimal places
+ */
     public void withdraw (double amount)  {
         balance -= amount;
-
     }
 
     /**
